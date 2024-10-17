@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -9,12 +10,12 @@ using WebAPI.Data;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
         private readonly BookStoreContext _context;
-
         public BooksController(BookStoreContext context)
         {
             _context = context;
